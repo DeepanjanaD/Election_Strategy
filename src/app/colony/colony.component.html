@@ -1,0 +1,18 @@
+<div class="row">
+    <a routerLink="addColony"  class="election-nav-link col-lg-3 col-md-6 col-sm-12 mb-5">
+        <button class="election-nav-btn">
+            <span class="iconify election-nav-icon" data-icon="ic:round-plus" data-width="24" data-height="24"></span>
+            <span class="election-nav-label">Add Colony Details</span>
+        </button>
+    </a>
+    <a routerLink="viewColony" class="election-nav-link col-lg-3 col-md-6 col-sm-12 mb-5">
+        <button class="election-nav-btn">
+            <span class="iconify election-nav-icon" data-icon="carbon:view" data-width="24" data-height="24"></span>
+            <span class="election-nav-label">View Colony Details</span>
+        </button>
+    </a>
+</div>
+
+<div class="height-100" id="election_content">
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,37 @@
+<div class="col-md-8">
+    <h2 class="mb-3 heading">Add Election Details</h2>
+    <form class="needs-validation" novalidate="" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="electionName">Election Name</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="electionName" 
+                        required="true" [(ngModel)]="election.electionName" name="electionName">
+                    <div class="invalid-feedback">
+                        Election type is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x"  data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="electionType">Election Type</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="electionType"
+                        required="false" name="electionType">
+                    <div class="invalid-feedback">
+                        Election type is required.
+                    </div>
+                    <button class="btn-close-custom input-box bn-close" type="reset">
+                        <span class="iconify" data-icon="bi:x"  data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="mb-4 mt-5">
+        <button class="btn btn-outline-success btn-lg " type="submit">Save Details</button>
+        <button class="btn btn-outline-dark btn-lg ms-4 " type="reset">Reset</button>
+    </form>
+</div>
+

@@ -1,0 +1,24 @@
+<div class="col-md-8">
+    <h2 class="mb-3 heading">Add Colony Details</h2>
+    <form class="needs-validation" novalidate="" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="colonyName">Colony Name</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="colonyName" 
+                        required="true" [(ngModel)]="colony.colonyName" name="colonyName">
+                    <div class="invalid-feedback">
+                        Colony name is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x"  data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="mb-4 mt-5">
+        <button class="btn btn-outline-success btn-lg " type="submit">Save Details</button>
+        <button class="btn btn-outline-dark btn-lg ms-4 " type="reset">Reset</button>
+    </form>
+</div>
+

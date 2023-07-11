@@ -1,0 +1,104 @@
+<div class="col">
+    <h2 class="mb-3 heading">Edit Booth Details</h2>
+    <form class="needs-validation" novalidate="" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="boothName">Booth Name</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="boothName" required="true"
+                        [(ngModel)]="booth.boothName" name="boothName">
+                    <div class="invalid-feedback">
+                        Booth name is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x" data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="returningOfficer">Returning Officer</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="returningOfficer" required="true"
+                        [(ngModel)]="booth.returningOfficer" name="returningOfficer">
+                    <div class="invalid-feedback">
+                        Booth name is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x" data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Break -->
+            <div class="w-100 mb-4"></div>
+            <!-- Break -->
+            <div class="col-md-4 mb-3">
+                <label for="verificationOfficer">Verification Officer</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="verificationOfficer" required="true"
+                        [(ngModel)]="booth.verificationOfficer" name="verificationOfficer">
+                    <div class="invalid-feedback">
+                        Booth name is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x" data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="votingAdministrator">Voting Administrator</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="votingAdministrator" required="true"
+                        [(ngModel)]="booth.votingAdministrator" name="votingAdministrator">
+                    <div class="invalid-feedback">
+                        Booth name is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x" data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Break -->
+            <div class="w-100 mb-4"></div>
+            <!-- Break -->
+            <div class="col-md-4 mb-3">
+                <label for="location">Location</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="location" required="true"
+                        [(ngModel)]="booth.location" name="location">
+                    <div class="invalid-feedback">
+                        Booth name is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x" data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive card mt-5" style="background: transparent; border-color: var(--brown-color);">
+            <table class="table table-hover" style="margin: 0;">
+                <thead>
+                    <tr class="table-custom">
+                        <th scope="col" class="table-custom">Colony Name</th>
+                        <th scope="col" class="table-custom">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let colony of Colonies">
+                        <td class="rows">{{ colony.colonyName }}</td>
+                        <td class="rows" style="align-items: center;">
+                            <button type="button" class="edit-btn" (click)="removeColony(colony.colonyId)">
+                                <span class="iconify" data-icon="ph:x-bold" data-width="23" data-height="23"
+                                    style="vertical-align: text-bottom;"></span>
+                                De-Link
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr class="mb-4 mt-5">
+        <button class="btn btn-outline-success btn-lg" type="submit">Save Details</button>
+        <button class="btn btn-outline-dark btn-lg ms-4 " type="reset">Reset</button>
+        <button class="btn btn-outline-primary btn-lg ms-4 " (click)="gotoBoothList()">Cancel</button>
+    </form>
+</div>

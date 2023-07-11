@@ -1,0 +1,76 @@
+<div class="col-md-8">
+    <h2 class="mb-3 heading">Add Booth Details</h2>
+    <form class="needs-validation" novalidate="" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="boothName">Booth Name</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="boothName" 
+                        required="true" [(ngModel)]="booth.boothName" name="boothName">
+                    <div class="invalid-feedback">
+                        Booth name is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x"  data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="returningOfficer">Returning Officer</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="returningOfficer" 
+                        required="true" [(ngModel)]="booth.returningOfficer" name="returningOfficer">
+                    <div class="invalid-feedback">
+                        Booth name is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x"  data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="verificationOfficer">Verification Officer</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="verificationOfficer" 
+                        required="true" [(ngModel)]="booth.verificationOfficer" name="verificationOfficer">
+                    <div class="invalid-feedback">
+                        Booth name is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x"  data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="votingAdministrator">Voting Administrator</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="votingAdministrator" 
+                        required="true" [(ngModel)]="booth.votingAdministrator" name="votingAdministrator">
+                    <div class="invalid-feedback">
+                        Booth name is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x"  data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="location">Location</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="location" 
+                        required="true" [(ngModel)]="booth.location" name="location">
+                    <div class="invalid-feedback">
+                        Booth name is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x"  data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr class="mb-4 mt-5">
+        <button class="btn btn-outline-success btn-lg " type="submit">Save Details</button>
+        <button class="btn btn-outline-dark btn-lg ms-4 " type="reset">Reset</button>
+    </form>
+</div>
+

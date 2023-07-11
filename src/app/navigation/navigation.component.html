@@ -1,0 +1,95 @@
+<div id="body-pd" class="content">
+
+    <!------------------------- HEADER STARTS ------------------------------>
+    <header class="header" id="header">
+        <div class="header-box">
+            <div class="header_toggle">
+                <i class='toggle-icon' id="header-toggle">
+                    <span class="iconify t-icon" data-icon="mingcute:menu-fill" style="color: var(--brown-color);"
+                        data-width="20" data-height="20"></span>
+                </i>
+            </div>
+            <div class="container-fluid" id="CW-logo">
+                <span> CampaignWise</span>
+            </div>
+            <div class="header-search">
+                <button class="user-icon">
+                    <span class="iconify" data-icon="bxs:user" style="color: var(--brown-color);" data-width="24"
+                        data-height="24"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!------------------------- HEADER ENDS ------------------------------>
+
+
+
+    <!------------------------- NAVBAR STARTS ------------------------------>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <div id="logo-toggle">
+                    <a class="nav_logo">
+                        <button class="logo_img" style="color: var(--brown-color);"> C </button>
+                        <span class="nav_logo-name" style="color: var(--brown-color);">CampaignWise</span>
+                    </a>
+                </div>
+                <div class="scroll-nav">
+                    <div class="nav_list">
+                        <a routerLink="dashboard" class="nav_link active" id="nav-link">
+                            <i class='nav_icon'>
+                                <span class="iconify" data-icon="fluent:grid-24-filled"
+                                    style="color: var(--brown-color);" data-width="22" data-height="22"></span>
+                            </i>
+                            <span class="nav_name">Dashboard</span>
+                        </a>
+                        <a routerLink="election" class="nav_link" id="nav-link">
+                            <i class='nav_icon'>
+                                <span class="iconify" data-icon="fa-solid:vote-yea" style="color: var(--brown-color);"
+                                    data-width="24" data-height="24"></span>
+                            </i>
+                            <span class="nav_name">Election</span>
+                        </a>
+                        <a routerLink="voterData" class="nav_link">
+                            <i class='nav_icon'>
+                                <span class="iconify" data-icon="mingcute:idcard-fill"
+                                    style="color: var(--brown-color);" data-width="24" data-height="24"></span>
+                            </i>
+                            <span class="nav_name">VoterData</span>
+                        </a>
+                        <a routerLink="booth" class="nav_link" id="nav-link">
+                            <i class='nav_icon'>
+                                <span class="iconify" data-icon="fa-solid:person-booth"
+                                    style="color: var(--brown-color);" data-width="24" data-height="24"></span>
+                            </i>
+                            <span class="nav_name">Booth</span>
+                        </a>
+                        <a routerLink="colony" class="nav_link">
+                            <i class='nav_icon'>
+                                <span class="iconify" data-icon="ri:building-fill" data-width="24" data-height="24"></span>
+                            </i>
+                            <span class="nav_name">Colony</span>
+                        </a>
+                        <a routerLink="#" class="nav_link">
+                            <i class='nav_icon'>
+                                <span class="iconify" data-icon="uis:signout" style="color: var(--brown-color);" data-width="22"
+                                    data-height="22" data-rotate="180deg"></span>
+                            </i>
+                            <span class="nav_name">SignOut</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </nav>
+    </div>
+    <!------------------------- NAVBAR ENDS ------------------------------>
+
+     <!------------------------- MAIN CONTENT STARTS ------------------------------>
+ <div class="height-100 ms-3" id="main_content" style="background: var(--first-color-light);">
+    <router-outlet></router-outlet>
+</div>
+<!------------------------- MAIN CONTENT ENDS ------------------------------>
+
+</div>
+

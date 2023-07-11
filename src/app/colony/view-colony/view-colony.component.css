@@ -1,0 +1,44 @@
+.container{
+    padding: 0;
+    margin: 0;
+    border-radius: 0.9rem;
+}
+
+.table-custom{
+    background: var(--brown-color);
+    font-size: 1.2rem;
+    font-family: var(--font-family);
+    color: var(--first-color-light);
+}
+
+.rows{
+    background: var(--first-color-light);
+    border-top: 1px solid var(--brown-color);
+    border-bottom: none;
+    color: var(--brown-color);
+    width: 50%;
+}
+
+.table-hover tbody tr:hover td{
+    background-color: var(--first-color);
+    accent-color: rgba(255, 255, 255, 0);
+}
+
+.table {
+    --bs-table-hover-bg: transparent; 
+}
+
+
+.edit-btn{
+    background: var(--brown-color);
+    color: var(--first-color-light);
+    border: none;
+    border-radius: 0.9rem;
+    padding: 0.2rem 1rem;
+    font-size: 1.2rem;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+

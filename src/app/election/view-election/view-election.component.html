@@ -1,0 +1,28 @@
+<div class="table-responsive card" style="background: transparent; border-color: var(--brown-color);">
+<table class="table table-hover" style="margin: 0;">
+    <thead>
+      <tr class="table-custom">
+        <!-- <th scope="col" class="table-custom">Election ID</th> -->
+        <th scope="col" class="table-custom">Election Name</th>
+        <th  scope="col" class="table-custom">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let election of Elections">
+        <!-- <td class="rows">{{ election.electionId }}</td> -->
+        <td class="rows">{{ election.electionName }}</td>
+        <td class="rows">
+          <button class="edit-btn" (click)="editElection(election.electionId)">
+            <span class="iconify election-nav-icon" data-icon="fluent:edit-16-regular" data-width="23" data-height="23"></span>
+            Edit
+          </button>
+
+          <button class="edit-btn ms-3" (click)="deleteElection(election.electionId)">
+            <span class="iconify election-nav-icon" data-icon="fluent:edit-16-regular" data-width="23" data-height="23"></span>
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,38 @@
+<div class="table-responsive card mt-5 mb-3" style="background: transparent; border-color: var(--brown-color);">
+    <table class="table table-hover table-sm" style="margin: 0;">
+        <thead>
+            <tr class="table-custom">
+                <th scope="col" class="table-custom">Booth Name</th>
+                <th scope="col" class="table-custom">Returning <br> Officer</th>
+                <th scope="col" class="table-custom">Verification <br> Officer</th>
+                <th scope="col" class="table-custom">Voting <br> Administrator</th>
+                <th scope="col" class="table-custom">Location</th>
+                <th scope="col" class="table-custom">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let booth of Booths">
+                <td class="rows">{{ booth.boothName }}</td>
+                <td class="rows">{{ booth.returningOfficer}}</td>
+                <td class="rows">{{ booth.verificationOfficer}}</td>
+                <td class="rows">{{ booth.votingAdministrator}}</td>
+                <td class="rows">{{ booth.location}}</td>
+                <td class="rows" style="align-items: center;">
+                    <button class="edit-btn mt-3" (click)="editBooth(booth.boothId)">
+                        <span class="iconify election-nav-icon" data-icon="fluent:edit-16-regular" data-width="23" data-height="23"></span>
+                        Edit
+                      </button>
+                      <br>
+                      <button class="edit-btn mt-3" (click)="addColonyAssociation(booth.boothId)">
+                        <span class="iconify election-nav-icon" data-icon="ph:link-bold" data-width="23" data-height="23"></span>
+                        Link Colony
+                      </button>
+                      <button class="edit-btn mt-3 mb-4" (click)="deleteBooth(booth.boothId)">
+                        <span class="iconify election-nav-icon" data-icon="fluent:edit-16-regular" data-width="23" data-height="23"></span>
+                        Delete
+                      </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
