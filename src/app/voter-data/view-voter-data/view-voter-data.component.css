@@ -1,4 +1,16 @@
 
+/* Custom below */
+table.dataTable th{
+    background: var(--brown-color);
+    font-size: 1.1rem;
+    font-family: var(--font-family);
+    color: var(--first-color-light);
+    padding: 0;
+    padding-right: 0.10rem;
+}
+
+
+
 .heading{
     color: var(--brown-color);
     font-family: var(--font-family);
@@ -43,7 +55,7 @@
 }
 
 
-input:-webkit-autofill,
+/* input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active{
@@ -51,30 +63,32 @@ input:-webkit-autofill:active{
     -webkit-text-fill-color: var(--brown-color);
     transition: background-color 5000s ease-in-out 0s;
     box-shadow: none;
-}
+} */
+  
 
-
-.table-custom{
-    background: var(--brown-color);
+.ng-select.custom {
+    min-height: 0px;
+    border-radius: 0;
     font-size: 1.2rem;
-    font-family: var(--font-family);
-    color: var(--first-color-light);
+    
 }
-
-.rows{
-    background: var(--first-color-light);
-    border-top: 1px solid var(--brown-color);
-    border-bottom: none;
+.ng-select.custom::ng-deep.ng-dropdown-panel-items.scroll-host {
+    background: var(--first-color);
+    padding: 1rem;
+    margin-top: 0.8rem;
+    width: fit-content;
+    border-radius: 0.9rem;
+    transition: 0.3s ease-in-out;
     color: var(--brown-color);
 }
 
-.table-hover tbody tr:hover td{
-    background-color: var(--first-color);
-    accent-color: rgba(255, 255, 255, 0);
+.ng-select.custom::ng-deep.ng-clear{
+    font-size: 1.7rem;
 }
 
-.table {
-    --bs-table-hover-bg: transparent; 
+.ng-select.custom::ng-deep.ng-arrow{
+    color: var(--brown-color);
+    font-size: 1.7rem;
 }
 
 
@@ -91,10 +105,6 @@ input:-webkit-autofill:active{
 }
 
 
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-  -webkit-appearance:none;
-}
-  
+
+
+

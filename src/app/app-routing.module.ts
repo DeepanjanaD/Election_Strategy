@@ -15,6 +15,8 @@ import { BoothColonyComponent } from './booth/booth-colony/booth-colony.componen
 import { ViewBoothComponent } from './booth/view-booth/view-booth.component';
 import { EditBoothComponent } from './booth/edit-booth/edit-booth.component';
 import { AddBoothComponent } from './booth/add-booth/add-booth.component';
+import { EditVoterDataComponent } from './voter-data/edit-voter-data/edit-voter-data.component';
+import { ViewVoterDataComponent } from './voter-data/view-voter-data/view-voter-data.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -37,7 +39,12 @@ const routes: Routes = [
     {path: '', redirectTo: 'addBooth', pathMatch: 'full'},
     {path: 'addBooth', component: AddBoothComponent}
   ]},
-  {path: 'voterData', component: VoterDataComponent},
+  {path: 'voterData', component: VoterDataComponent,
+  children: [
+    {path: '', redirectTo: 'addVoterData', pathMatch: 'full'},
+  ]},
+  {path: 'voterData/editVoterData/:voterDataId', component: EditVoterDataComponent},
+  {path: 'viewVoterData', component: ViewVoterDataComponent},
   {path: 'colony', component: ColonyComponent,
   children: [
     {path: '', redirectTo: 'addColony', pathMatch: 'full'},

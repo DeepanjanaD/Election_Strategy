@@ -33,7 +33,8 @@
               "node_modules/popper.js/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/assets/Dashboard.js",
-              "src/assets/CloseBtn.js"
+              "src/assets/CloseBtn.js",
+              "src/assets/table.js"
             ]
           },
           "configurations": {

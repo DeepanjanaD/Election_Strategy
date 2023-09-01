@@ -1,9 +1,9 @@
 export class Category {
-    categoryID: string;
+    categoryId: string;
     categoryName: string;
 
-    constructor(categoryID: string, categoryName: string) {
-        this.categoryID = categoryID;
+    constructor(categoryId: string, categoryName: string) {
+        this.categoryId = categoryId;
         this.categoryName = categoryName;
     }
 }

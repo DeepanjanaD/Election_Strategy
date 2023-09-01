@@ -6,6 +6,7 @@ import { Colony } from 'src/app/colony/colony';
 import { ColonyBoothService } from 'src/app/Services/colony-booth.service';
 import { BoothColony } from '../colonyBooth';
 import { ColonyService } from 'src/app/Services/colony.service';
+import { Ward } from 'src/app/voter-data/Divisions/ward';
 
 @Component({
   selector: 'app-edit-booth',
@@ -15,7 +16,7 @@ import { ColonyService } from 'src/app/Services/colony.service';
 export class EditBoothComponent implements OnInit {
 
   boothId: string = "";
-  booth: Booth = new Booth("", "", "", "", "", "");
+  booth: Booth = new Booth("", "", "", "", "", "", new Ward("", ""));
   Colonies: Colony[] = [];
   colonyId: string = "";
   colonyBoothId: string = "";

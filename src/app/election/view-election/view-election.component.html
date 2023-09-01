@@ -2,14 +2,12 @@
 <table class="table table-hover" style="margin: 0;">
     <thead>
       <tr class="table-custom">
-        <!-- <th scope="col" class="table-custom">Election ID</th> -->
         <th scope="col" class="table-custom">Election Name</th>
         <th  scope="col" class="table-custom">Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let election of Elections">
-        <!-- <td class="rows">{{ election.electionId }}</td> -->
         <td class="rows">{{ election.electionName }}</td>
         <td class="rows">
           <button class="edit-btn" (click)="editElection(election.electionId)">

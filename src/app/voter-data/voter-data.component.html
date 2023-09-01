@@ -53,6 +53,18 @@
             </div>
 
             <!-- Break -->
+            <!-- <div class="w-100 mb-4"></div> -->
+            <!-- Break -->
+
+            <!-- <div class="col-md-4 mb-4 ">
+                <label for="wardName" style="font-size: 1.3rem;">Ward Name</label>
+                <div class="input-style">
+                    <ng-select [items]="booths" bindLabel="wardName" class="custom" [(ngModel)]="ward"
+                    name="boothName" (change)="getColoniesOfBooth(booth.boothId)"></ng-select>
+                </div>
+            </div> -->
+
+            <!-- Break -->
             <div class="w-100 mb-4"></div>
             <!-- Break -->
 
@@ -80,7 +92,7 @@
                 <label for="apartmentName" style="font-size: 1.3rem;">Apartment Name</label>
                 <div class="input-style">
                     <ng-select [items]="apartments" bindLabel="apartmentName" class="custom" [(ngModel)]="apartment" 
-                    name="colonyName"></ng-select>
+                    name="apartmentName"></ng-select>
                 </div>
             </div>
 
@@ -98,7 +110,8 @@
         </div>
         <hr class="mb-4 mt-5">
         <button class="btn btn-outline-success btn-lg " type="submit">Save Details</button>
-        <button class="btn btn-outline-dark btn-lg ms-4 " type="reset">Reset</button>
+        <button class="btn btn-outline-dark btn-lg ms-4 " type="button" (click)="setFilter()">Reset</button>
+        <button class="btn btn-outline-primary btn-lg ms-4 " type="button" (click)="searchTable()">Search</button>
     </form>
     <!-- TABLE -->
     <div class="table-responsive card mt-5 mb-3" style="background: transparent; border-color: var(--brown-color);">
@@ -117,7 +130,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let voterData of VoterDatas">
+                <tr *ngFor="let voterData of VoterDatas | myFilter: filter">
                     <td class="rows">{{ voterData.community.communityName}}</td>
                     <td class="rows">{{ voterData.category.categoryName }}</td>
                     <td class="rows">{{ voterData.caste.casteName }}</td>
@@ -127,12 +140,12 @@
                     <td class="rows">{{ voterData.colony.colonyName }}</td>
                     <td class="rows">{{ voterData.apartment.apartmentName }}</td>
                     <td class="rows" style="align-items: center;">
-                        <button class="edit-btn mt-3">
+                        <button class="edit-btn mt-3" (click)="editVoterData(voterData)">
                             <span class="iconify election-nav-icon" data-icon="fluent:edit-16-regular" data-width="23" data-height="23"></span>
                             Edit
                           </button>
                           <br>
-                          <button class="edit-btn mt-3 mb-4">
+                          <button class="edit-btn mt-3 mb-4" (click)="deleteVoterData(voterData)">
                             <span class="iconify election-nav-icon" data-icon="fluent:edit-16-regular" data-width="23" data-height="23"></span>
                             Delete
                           </button>

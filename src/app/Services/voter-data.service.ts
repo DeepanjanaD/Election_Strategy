@@ -28,6 +28,14 @@ export class VoterDataService {
     return this.httpClient.get<VoterData[]>(`${this.baseUrl}`);
   }
 
+  updateVoterData(voterData: VoterData): Observable<VoterData>{
+    return this.httpClient.put<VoterData>(`${this.baseUrl}`, voterData);
+  }
+
+  getVoterDataById(voterDataId: string): Observable<VoterData>{
+    return this.httpClient.get<VoterData>(`${this.baseUrl}/${voterDataId}`);
+  }
+
   getCommunityOfVoterData(voterDataId: string): Observable<Community>{
     return this.httpClient.get<Community>(`${this.baseUrl}/community/${voterDataId}`);
   }
@@ -54,6 +62,10 @@ export class VoterDataService {
 
   getApartmentOfVoterData(voterDataId: string): Observable<Apartment>{
     return this.httpClient.get<Apartment>(`${this.baseUrl}/apartment/${voterDataId}`);
+  }
+
+  deleteVoterData(voterDataId: string): Observable<Object>{
+    return this.httpClient.delete<Object>(`${this.baseUrl}/${voterDataId}`);
   }
     
 }

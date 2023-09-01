@@ -1,0 +1,108 @@
+<div class="col">
+    <h2 class="mb-5 heading">Edit Voter Data</h2>
+    <!-- FORM: HAS THE onSubmit() -->
+    <form class="needs-validation" (ngSubmit)="onSubmit()">
+        <div class="row">
+
+            <div class="col-md-4 ">
+                <label for="electionName" style="font-size: 1.3rem;">Election Name</label>
+                <div class="input-style">
+                    <ng-select [items]="elections" bindLabel="electionName" class="custom" [(ngModel)]="election" 
+                    name="electionName"></ng-select>
+                </div>
+            </div>
+
+            <!-- Break -->
+            <div class="w-100 mb-4"></div>
+            <!-- Break -->
+
+            <div class="col-md-4 mb-4 ">
+                <label for="communityName" style="font-size: 1.3rem;">Community Name</label>
+                <div class="input-style">
+                    <ng-select [items]="communities" bindLabel="communityName" class="custom" [(ngModel)]="voterData.community"
+                    name="communityName"></ng-select>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4 ">
+                <label for="communityName" style="font-size: 1.3rem;">Category Name</label>
+                <div class="input-style">
+                    <ng-select [items]="categories" bindLabel="categoryName" class="custom" [(ngModel)]="voterData.category"
+                    name="categoryName"></ng-select>
+                </div>
+            </div>
+
+            <!-- Break -->
+            <div class="w-100 mb-4"></div>
+            <!-- Break -->
+
+            <div class="col-md-4 mb-4 ">
+                <label for="casteName" style="font-size: 1.3rem;">Caste Name</label>
+                <div class="input-style">
+                    <ng-select [items]="castes" bindLabel="casteName" class="custom" [(ngModel)]="voterData.caste"
+                    name="casteName"></ng-select>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4 ">
+                <label for="ageGroupName" style="font-size: 1.3rem;">Age Group</label>
+                <div class="input-style">
+                    <ng-select [items]="ageGroups" bindLabel="ageGroupName" class="custom" [(ngModel)]="voterData.ageGroup" 
+                    name="ageGroupName"></ng-select>
+                </div>
+            </div>
+
+            <!-- Break -->
+            <div class="w-100 mb-4"></div>
+            <!-- Break -->
+
+            <div class="col-md-4 mb-4 ">
+                <label for="boothName" style="font-size: 1.3rem;">Booth Name</label>
+                <div class="input-style">
+                    <ng-select [items]="booths" bindLabel="boothName" class="custom" [(ngModel)]="voterData.booth"
+                    name="boothName" (change)="getColoniesOfBooth(voterData.booth.boothId)"  ></ng-select>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4 ">
+                <label for="colonyName" style="font-size: 1.3rem;">Colony Name</label>
+                <div class="input-style">
+                    <ng-select [items]="colonies" bindLabel="colonyName" class="custom" [(ngModel)]="voterData.colony" 
+                    name="colonyName" (change)="getApartmentsOfColony(voterData.colony.colonyId)"></ng-select>
+                </div>
+            </div>
+
+            <!-- Break -->
+            <div class="w-100 mb-4"></div>
+            <!-- Break -->
+
+            <div class="col-md-4 mb-4 ">
+                <label for="apartmentName" style="font-size: 1.3rem;">Apartment Name</label>
+                <div class="input-style">
+                    <ng-select [items]="apartments" bindLabel="apartmentName" class="custom" [(ngModel)]="voterData.apartment" 
+                    name="apartmentName"  ></ng-select>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <label for="boothName" style="font-size: 1.3rem;">Number Of Voters</label>
+                <div class="input-group input-style" style="padding-bottom: 0;">
+                    <input type="text" class="form-control input-box" id="noOfVoters" 
+                        required="true" [(ngModel)]="voterData.noOfVoters" name="noOfVoters">
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x"  data-width="24" data-height="24" style="vertical-align: baseline; font-size: 1.3rem; font-weight: 400;"></span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <hr class="mb-4 mt-5">
+        <button class="btn btn-outline-success btn-lg " type="submit">Save Details</button>
+        <button class="btn btn-outline-dark btn-lg ms-4 " type="reset">Reset</button>
+        <button class="btn btn-outline-primary btn-lg ms-4 " (click)="goToVoterData()">Cancel</button>
+    </form>
+
+</div>
+
+<!--  -->
+<!--  -->

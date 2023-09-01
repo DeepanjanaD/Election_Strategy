@@ -6,6 +6,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { BoothService } from 'src/app/Services/booth.service';
 import { ColonyBoothService } from 'src/app/Services/colony-booth.service';
 import { BoothColony } from '../colonyBooth';
+import { Ward } from 'src/app/voter-data/Divisions/ward';
 
 
 
@@ -21,7 +22,7 @@ export class BoothColonyComponent implements OnInit {
   NoLinkColonies: Colony[] = [];
   FormColony: Colony = new Colony("", "", []);
   colony: Colony = new Colony("", "", []);
-  booth: Booth = new Booth("", "", "", "", "", "");
+  booth: Booth = new Booth("", "", "", "", "", "" , new Ward("", ""));
   boothId: string = "";
   colonyIds: string[] = [];
 
@@ -41,7 +42,6 @@ export class BoothColonyComponent implements OnInit {
       console.log(data);
       this.colony.colonyId = "";
       this.colony.colonyName = "";
-      // console.log("COLONY IDS", this.colonyIds);
       this.getColonyList();
     }, error => console.log(error));
     
@@ -49,17 +49,15 @@ export class BoothColonyComponent implements OnInit {
 
 
   addColonyAssosiation(colonyId: string, boothId: string){
+    //to add multiple colonies to the list
     this.colonyService.getColonyById(colonyId).subscribe(data => {
       this.colony = data;
       this.colonyIds.push(this.colony.colonyId);
-      // console.log(this.colonyIds);
-      // console.log(boothId);
       this.colonyBoothService.postColonyBooth(this.boothId, this.colonyIds).subscribe(data => {
         console.log(data);
         this.colony.colonyId = "";
         this.colony.colonyName = "";
         this.FormColony.colonyName = "";
-        // console.log("COLONY IDS", this.colonyIds);
         this.getColonyList();
       }, error => console.log(error));
     }, error => console.log(error));

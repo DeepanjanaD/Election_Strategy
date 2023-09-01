@@ -1,0 +1,76 @@
+<div class=" card mt-5 mb-3" style="background: transparent; border: none;">
+    <!-- <div class="col-md-4 mb-4 ">
+        <label for="constituencyName" style="font-size: 1.3rem;"> Constituency Name</label>
+        <div class="input-style">
+            <ng-select [items]="constituencyList" bindLabel="constituencyName" class="custom" name="constituencyName" [(ngModel)]="constituency"
+                name="constituencyName" (change)="getConstituencyVoterData()" id="constituency"></ng-select>
+        </div>
+    </div> -->
+    <div class="col-md-4 mb-4 ">
+        <label style="font-size: 1.3rem;"> Constituency Name</label>
+        <div class="input-style custom">
+        </div>
+    </div>
+
+    <table id="example" class="display table table-responsive table-hover table-sm" style="width: 100%;">
+        <thead>
+            <tr>
+                <th scope="col" class="table-custom">Mandal</th>
+                <th scope="col" class="table-custom">Gram <br> Panchayat</th>
+                <th scope="col" class="table-custom">Municipality</th>
+                <th scope="col" class="table-custom">Ward</th>
+                <th scope="col" class="table-custom">Booth</th>
+                <th scope="col" class="table-custom">Colony</th>
+                <th scope="col" class="table-custom">Apartment</th>
+                <th scope="col" class="table-custom">Community</th>
+                <th scope="col" class="table-custom">Category</th>
+                <th scope="col" class="table-custom">Caste</th>
+                <th scope="col" class="table-custom">Age <br> Group</th>
+                <th scope="col" class="table-custom">Voters</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd">
+                <td >Ward</td>
+                <td >Ward</td>
+                <td >Ward</td>
+                <td >Ward</td>
+                <td >Ward</td>
+                <td >Ward</td>
+                <td >Ward</td>
+                <td >Ward</td>
+                <td >Ward</td>
+
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="col" class="table-custom" style="height: 1.2rem;">Mandal</th>
+                <th scope="col" class="table-custom">Gram Panchayat</th>
+                <th scope="col" class="table-custom">Municipality</th>
+                <th scope="col" class="table-custom">Ward</th>
+                <th scope="col" class="table-custom">Booth</th>
+                <th scope="col" class="table-custom">Colony</th>
+                <th scope="col" class="table-custom">Apartment</th>
+                <th scope="col" class="table-custom">Community</th>
+                <th scope="col" class="table-custom">Category</th>
+                <th scope="col" class="table-custom">Caste</th>
+                <th scope="col" class="table-custom">Age Group</th>
+                <th scope="col" class="table-custom">       </th>
+            </tr>
+            <!-- <tr style="width: 100%;">
+                <th scope="col" class="table-custom">Ward</th>
+                <th scope="col" class="table-custom">Booth</th>
+                <th scope="col" class="table-custom">Colony</th>
+                <th scope="col" class="table-custom">Apartment</th>
+                <th scope="col" class="table-custom">Community</th>
+                <th scope="col" class="table-custom">Category</th>
+                <th scope="col" class="table-custom">Caste</th>
+                <th scope="col" class="table-custom">Age Group</th>
+                <th scope="col" class="table-custom">Voters</th>
+            </tr> -->
+        </tfoot>
+
+    </table>
+</div>

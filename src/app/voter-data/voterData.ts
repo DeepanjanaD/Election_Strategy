@@ -7,7 +7,7 @@ import { Category } from "./Divisions/category";
 import { Community } from "./Divisions/community";
 
 export class VoterData{
-    voterDataId: string;
+    voterDataId: string | null;
     community: Community;
     category: Category;
     caste: Caste;
@@ -20,7 +20,12 @@ export class VoterData{
     constructor(voterDataId: string, community: Community, category: Category, caste: Caste, ageGroup: AgeGroup, noOfVoters: number, 
         booth: Booth, colony: Colony, apartment: Apartment){
 
-        this.voterDataId = voterDataId;
+        if(voterDataId == ""){
+            this.voterDataId = null;
+        }
+        else{
+            this.voterDataId = voterDataId;
+        }
         this.community = community;
         this.category = category;
         this.caste = caste;

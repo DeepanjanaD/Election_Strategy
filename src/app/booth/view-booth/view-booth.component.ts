@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Booth } from '../booth';
 import { BoothService } from 'src/app/Services/booth.service';
 import { Router } from '@angular/router';
+import { Ward } from 'src/app/voter-data/Divisions/ward';
 
 @Component({
   selector: 'app-view-booth',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class ViewBoothComponent implements OnInit {
   
   Booths: Booth[] = [];
-  delBooth: Booth = new Booth("", "", "", "", "", "");
+  delBooth: Booth = new Booth("", "", "", "", "", "", new Ward("", ""));
 
   constructor(private boothService: BoothService,
     private router: Router) { }

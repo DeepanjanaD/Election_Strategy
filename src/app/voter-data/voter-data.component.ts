@@ -17,6 +17,8 @@ import { ApartmentService } from '../Services/apartment.service';
 import { VoterData } from './voterData';
 import { VoterDataService } from '../Services/voter-data.service';
 import { VoterDataGetService } from '../Services/voter-data-get.service';
+import { Router } from '@angular/router';
+import { Ward } from './Divisions/ward';
 
 @Component({
   selector: 'app-voter-data',
@@ -43,9 +45,9 @@ export class VoterDataComponent implements OnInit {
 
   elections: Election[] = [];
   election: Election = new Election("", "");
-
+ 
   booths: Booth[] = [];
-  booth: Booth = new Booth("", "", "", "" , "", "");
+  booth: Booth = new Booth("", "", "", "" , "", "", new Ward("", ""));
 
   colonies: Colony[] = [];
   colony: Colony = new Colony("", "", []);
@@ -61,6 +63,16 @@ export class VoterDataComponent implements OnInit {
 
   noOfVoters: string = "";
 
+  filter =  {
+    community: this.voterData.community,
+      category: this.voterData.category,
+      caste: this.voterData.caste,
+      ageGroup: this.voterData.ageGroup,
+      booth : this.voterData.booth,
+      colony: this.voterData.colony,
+      apartment: this.voterData.apartment
+  };
+
   //constructors for each service are injected here
   constructor(private communityService: CommunityService,
     private catgoryService: CategoryService,
@@ -70,7 +82,8 @@ export class VoterDataComponent implements OnInit {
     private ageGroupService: AgeGroupService,
     private apartmentService: ApartmentService,
     private voterDataService: VoterDataService,
-    private voterDataGetService: VoterDataGetService) { }
+    private voterDataGetService: VoterDataGetService,
+    private router: Router) { }
 
   //this method is called when submit button is clicked
   onSubmit(): void
@@ -80,6 +93,8 @@ export class VoterDataComponent implements OnInit {
     console.log(this.election);
     //posts the voterData object to the database
     this.saveVoterData();
+    // this.getVoterDatas();
+    
     console.log(this.voterData);
   } 
 
@@ -88,7 +103,9 @@ export class VoterDataComponent implements OnInit {
     //found in voter-data.service.ts in Services folder
     this.voterDataService.postVoterData(this.voterData).subscribe( data => {
       console.log(data);
+      this.getVoterDatas();
     }, error => console.log(error));
+    // this.getVoterDatas();
   }
 
   saveDetails(): void{
@@ -186,58 +203,20 @@ export class VoterDataComponent implements OnInit {
   //attempt but failed
   // voter data properties(community, category, etc) are getting duplicated over and over again
   getVoterDatas(): void{
-    this.voterDataGetService.getVoterData().subscribe( data => {
-      console.log(data);
-      data.forEach(Data => {
-        this.voterData.voterDataId = Data.voterDataId;
-        this.voterDataService.getCommunityOfVoterData(Data.voterDataId).subscribe( community => {
-          this.voterData.community = community;
-          console.log(this.voterData.community);
-        }, error => console.log(error));
-
-        this.voterDataService.getCategoryOfVoterData(Data.voterDataId).subscribe( category => {
-          this.voterData.category = category;
-          // console.log(this.voterData.category);
-        }, error => console.log(error));
-
-        this.voterDataService.getCasteOfVoterData(Data.voterDataId).subscribe( caste => {
-          this.voterData.caste = caste;
-          // console.log(this.voterData.caste);
-        }, error => console.log(error));
-
-        this.voterDataService.getAgeGroupOfVoterData(Data.voterDataId).subscribe( ageGroup => {
-          this.voterData.ageGroup = ageGroup;
-          this.voterData.ageGroup.ageGroupName = ageGroup.minAge + " - " + ageGroup.maxAge;
-          // console.log(this.voterData.ageGroup);
-        }, error => console.log(error));
-
-        this.voterDataService.getBoothOfVoterData(Data.voterDataId).subscribe( booth => {
-          this.voterData.booth = booth;
-          // console.log(this.voterData.booth);
-        }, error => console.log(error));
-
-        this.voterDataService.getColonyOfVoterData(Data.voterDataId).subscribe( colony => {
-          this.voterData.colony = colony;
-          // console.log(this.voterData.colony);
-        }, error => console.log(error));
-
-        this.voterDataService.getApartmentOfVoterData(Data.voterDataId).subscribe( apartment => {
-          if(apartment == null){
-            // console.log("apartment is null");
-            this.voterData.apartment = new Apartment("", "N/A", this.voterData.colony);
-          }
-          else{
-            this.voterData.apartment = apartment;
-          }
-          // console.log(this.voterData.apartment);
-        }, error => console.log(error));
-
-        console.log(this.voterData);
+    this.voterDataService.getVoterData().subscribe( data => {
+      data.forEach(voterData => {
+        if(voterData.apartment == null){
+          console.log("null");
+          voterData.apartment = new Apartment("", "N/A", voterData.colony);
+        }
+        voterData.ageGroup.ageGroupName = voterData.ageGroup.minAge + " - " + voterData.ageGroup.maxAge;
       });
+      this.VoterDatas = data;
+      console.log(this.VoterDatas);
     }, error => console.log(error));
   }
 
-  
+
 
   ngOnInit(): void {
 
@@ -248,8 +227,60 @@ export class VoterDataComponent implements OnInit {
     this.getElections();
     this.getBooths();
     this.getAgeGroups();
-    // this.getVoterDatas();
+    this.getVoterDatas();
+    console.log(this.filter);
     
+    
+  }
+
+  editVoterData(voterData: VoterData){
+    console.log(voterData);
+    this.router.navigate(['voterData/editVoterData', voterData.voterDataId]);
+  }
+
+  deleteVoterData(voterData: VoterData){
+    console.log(voterData.voterDataId);
+    if(voterData.voterDataId != null){
+      this.voterDataService.deleteVoterData(voterData.voterDataId).subscribe( data => {
+        console.log(data);
+        this.getVoterDatas();
+      }, error => console.log(error));
+    }
+    this.getVoterDatas();
+  }
+
+  searchTable() : void {
+    this.filter = {
+      community: this.community,
+      category: this.category,
+      caste: this.caste,
+      ageGroup: this.ageGroup,
+      booth : this.booth,
+      colony : this.colony,
+      apartment : this.apartment
+      // Add other properties that need to be filtered
+    };  
+    console.log(this.filter);
+  }
+
+  setFilter(){
+    this.community =  new Community("", "");
+    this.category = new Category("", "");
+    this.caste = new Caste("", "");
+    this.ageGroup = new AgeGroup("", 0, 0, ""); 
+    this.booth = new Booth("", "", "", "", "", "", new Ward("", ""));
+    this.colony = new Colony("", "", []);
+    this.apartment = new Apartment("", "", this.colony);
+    this.filter = {
+      community: this.community,
+      category: this.category,
+      caste: this.caste,
+      ageGroup: this.ageGroup,
+      booth : this.booth,
+      colony : this.colony,
+      apartment : this.apartment
+    }
+    // this.getVoterDatas();
   }
 
 }

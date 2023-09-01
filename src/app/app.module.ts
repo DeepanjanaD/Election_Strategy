@@ -26,6 +26,9 @@ import { AddBoothComponent } from './booth/add-booth/add-booth.component';
 // FILTER IMPORT 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { EditVoterDataComponent } from './voter-data/edit-voter-data/edit-voter-data.component';
+import { MyFilterPipe } from './my-filter.pipe';
+import { ViewVoterDataComponent } from './voter-data/view-voter-data/view-voter-data.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
     BoothColonyComponent,
     ViewBoothComponent,
     EditBoothComponent,
-    AddBoothComponent
+    AddBoothComponent,
+    EditVoterDataComponent,
+    MyFilterPipe,
+    ViewVoterDataComponent
   ],
   imports: [
     BrowserModule,

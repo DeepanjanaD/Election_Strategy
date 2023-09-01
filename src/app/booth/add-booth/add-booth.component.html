@@ -67,10 +67,48 @@
                     </button>
                 </div>
             </div>
+            <div class="col-md-6 mb-3">
+                <label for="location">Ward</label>
+                <div class="input-group input-style">
+                    <input type="text" class="form-control input-box" id="wardName" 
+                        required="true" [(ngModel)]="booth.boothWard.wardName" name="wardName">
+                    <div class="invalid-feedback">
+                        Booth name is required.
+                    </div>
+                    <button class="btn-close-custom input-box" type="reset">
+                        <span class="iconify bn-close" data-icon="bi:x"  data-width="20" data-height="20"></span>
+                    </button>
+                </div>
+            </div>
         </div>
+
+        
         <hr class="mb-4 mt-5">
         <button class="btn btn-outline-success btn-lg " type="submit">Save Details</button>
         <button class="btn btn-outline-dark btn-lg ms-4 " type="reset">Reset</button>
     </form>
+</div>
+
+<div class="table-responsive card mt-5 col-md-8" style="background: transparent; border-color: var(--brown-color);">
+    <table class="table table-hover" style="margin: 0;">
+        <thead>
+            <tr class="table-custom">
+                <th scope="col" class="table-custom">Ward Name</th>
+                <th scope="col" class="table-custom">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ward of Wards">
+                <td class="rows">{{ ward.wardName }}</td>
+                <td class="rows" style="align-items: center;">
+                    <button type="button" class="edit-btn" (click)="addWard(ward.wardId, ward.wardName)">
+                        <span class="iconify election-nav-icon" data-icon="ic:round-plus" data-width="24"
+                            data-height="24" style="vertical-align: text-bottom;"></span>
+                        Add
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
