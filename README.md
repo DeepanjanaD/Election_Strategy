@@ -1,5 +1,23 @@
 # ElectionStrategy
 
+## Aim
+
+A solution to assist election candidates with data-driven strategies. Collects and aggregates granular voter data for targeted campaigns.
+
+## Back End And Database
+
+Manages entities and repositories.
+Supports RESTful APIs for data operations.
+Entities include Election, Constituency, Gram Panchayat, Mandal, Municipalities, Wards, Booth, Colonies, Apartment, Voter Data, etc.
+Provides endpoints for adding, updating, deleting, and viewing data.
+
+## Front End
+
+Manages only colonies, apartments, booths, and voter data.
+Offers features for colony and booth management, colony associations, and mainly aggregated data view.
+Restricts all information of Wards for security.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
 
 ## Development server
